@@ -1,0 +1,52 @@
+﻿<Window x:Class="ProgrammierprojektWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgrammierprojektWPF"
+        mc:Ignorable="d"
+        Title="Client Menu" Height="675" Width="750" BorderThickness="0" FontFamily="Bell MT" FontSize="16" Foreground="Black" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style x:Key="{x:Type Button}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding Foreground}" RadiusX="5" RadiusY="5"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#FFC8C8C8"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF989898"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FF686868"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#7FC8C8C8"/>
+                    <Setter Property="Foreground" Value="#7F000000"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop Color="#FF121212" Offset="0.233"/>
+            <GradientStop Color="#FF2F2E2E" Offset="1"/>
+        </RadialGradientBrush>
+    </Window.Background>
+
+    <Grid>
+        <Button x:Name="cmdConnectFour" Content="Play Connect Four" Margin="50,100,50,0" VerticalAlignment="Top" Height="50" FontSize="40" Click="cmdConnectFour_Click"/>
+        <Button x:Name="cmdChomp" Content="Play Chomp" Margin="50,200,50,0" VerticalAlignment="Top" Height="50" FontSize="40" Click="cmdChomp_Click"/>
+        <Button x:Name="cmdServer" Content="Run Server" Margin="50,300,50,0" VerticalAlignment="Top" Height="50" FontSize="40" Click="cmdServer_Click"/>
+        <Button x:Name="cmdClient" Content="Run Client" Margin="50,400,50,0" VerticalAlignment="Top" Height="50" FontSize="40" Click="cmdClient_Click"/>
+        <Button x:Name="cmdQuit" Content="Quit" Margin="50,500,50,0" VerticalAlignment="Top" Height="50" FontSize="40" Click="cmdQuit_Click"/>
+    </Grid>
+</Window>
